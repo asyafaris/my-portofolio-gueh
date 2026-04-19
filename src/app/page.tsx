@@ -240,12 +240,10 @@ export default function Home() {
       </main>
 
       <footer className="border-t border-white/10 px-6 py-8 sm:px-8 lg:px-12">
-        <div className="mx-auto flex w-full max-w-7xl flex-col gap-3 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>Asya Ismatullah Faris</p>
-          <p>Built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.</p>
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-center text-sm text-muted-foreground">
+          <p>Copyright © 2026 Asya Ismatullah Faris. All rights reserved.</p>
         </div>
       </footer>
     </>
   );
 }
-
