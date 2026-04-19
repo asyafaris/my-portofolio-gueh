@@ -29,6 +29,12 @@ export type SkillGroup = {
   items: string[];
 };
 
+export type ContactItem = {
+  label: string;
+  href: string;
+  kind: 'linkedin' | 'instagram' | 'email';
+};
+
 export const navItems: NavItem[] = [
   { id: 'about', label: 'About' },
   { id: 'experience', label: 'Experience' },
@@ -131,21 +137,21 @@ export const certifications = [
   'Scrum Fundamentals',
 ];
 
-export const contactLinks = [
+export const contactLinks: ContactItem[] = [
   {
     label: 'LinkedIn',
     href: 'https://www.linkedin.com/',
-    value: 'Professional profile and career updates',
+    kind: 'linkedin',
   },
   {
     label: 'Instagram',
     href: 'https://www.instagram.com/',
-    value: 'A more personal window into my work and journey',
+    kind: 'instagram',
   },
   {
     label: 'Email',
     href: 'mailto:asyaismatullahfaris@gmail.com',
-    value: 'asyaismatullahfaris@gmail.com',
+    kind: 'email',
   },
 ];
 

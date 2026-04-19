@@ -8,11 +8,39 @@ import { TimelineItem } from '@/components/timeline-item';
 import {
   certifications,
   contactLinks,
+  type ContactItem,
   experienceItems,
   highlightItems,
   projectItems,
   skillGroups,
 } from '@/lib/portfolio-data';
+
+function ContactIcon({ kind }: { kind: ContactItem['kind'] }) {
+  if (kind === 'linkedin') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-6 w-6 fill-current">
+        <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3C4.17 3 3.31 3.88 3.31 4.97c0 1.07.86 1.94 1.94 1.94 1.09 0 1.97-.87 1.97-1.94A1.96 1.96 0 0 0 5.25 3Zm6.95 5.5H8.93V20h3.27v-5.69c0-1.5.28-2.95 2.14-2.95 1.83 0 1.85 1.72 1.85 3.04V20h3.28v-6.28c0-3.08-.66-5.45-4.25-5.45-1.72 0-2.87.95-3.34 1.84h-.05V8.5Z" />
+      </svg>
+    );
+  }
+
+  if (kind === 'instagram') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-6 w-6 fill-none stroke-current">
+        <rect x="3.25" y="3.25" width="17.5" height="17.5" rx="5.25" strokeWidth="1.8" />
+        <circle cx="12" cy="12" r="4" strokeWidth="1.8" />
+        <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className="h-6 w-6 fill-none stroke-current">
+      <rect x="3.25" y="5.25" width="17.5" height="13.5" rx="2.75" strokeWidth="1.8" />
+      <path d="m4.5 7 7.5 6 7.5-6" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
 
 export default function Home() {
   return (
@@ -195,10 +223,13 @@ export default function Home() {
                       href={link.href}
                       target={link.href.startsWith('http') ? '_blank' : undefined}
                       rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
-                      className="rounded-3xl border border-white/10 bg-white/[0.04] p-5 transition duration-200 hover:border-accent/40 hover:bg-white/[0.08]"
+                      aria-label={link.label}
+                      className="group flex min-h-40 flex-col items-center justify-center rounded-3xl border border-white/10 bg-white/[0.04] p-5 text-center transition duration-200 hover:border-accent/40 hover:bg-white/[0.08]"
                     >
-                      <p className="text-sm font-semibold text-foreground">{link.label}</p>
-                      <p className="mt-3 text-sm leading-7 text-muted-foreground">{link.value}</p>
+                      <span className="inline-flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.06] text-accent transition duration-200 group-hover:scale-105 group-hover:border-accent/40">
+                        <ContactIcon kind={link.kind} />
+                      </span>
+                      <p className="mt-4 text-sm font-semibold text-foreground">{link.label}</p>
                     </Link>
                   ))}
                 </div>
