@@ -1,26 +1,110 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-line: var(--line);
+  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #050816;
+  --foreground: #f3f7ff;
+  --muted-foreground: #95a4c0;
+  --secondary-foreground: #d7e2f5;
+  --accent: #72a8ff;
+  --accent-foreground: #dce9ff;
+  --line: rgba(255, 255, 255, 0.1);
+}
+
+html.light {
+  --background: #f4f8ff;
+  --foreground: #08111f;
+  --muted-foreground: #52627e;
+  --secondary-foreground: #17263c;
+  --accent: #2558f5;
+  --accent-foreground: #163178;
+  --line: rgba(8, 17, 31, 0.1);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  font-family: var(--font-geist-sans);
+  background:
+    radial-gradient(circle at top, rgba(82, 144, 255, 0.2), transparent 28%),
+    radial-gradient(circle at right top, rgba(115, 191, 255, 0.12), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 24%),
+    var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 35%, transparent);
+  color: var(--foreground);
+}
+
+main {
+  position: relative;
+}
+
+section {
+  scroll-margin-top: 6rem;
+}
+
+.surface-card {
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.025));
+  box-shadow: 0 18px 70px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(18px);
+  border-radius: 1.75rem;
+}
+
+html.light .surface-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.72));
+  box-shadow: 0 20px 60px rgba(31, 74, 145, 0.12);
+}
+
+.eyebrow {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border-radius: 999px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-foreground);
+}
+
+.grid-shell {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--line) 60%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--line) 60%, transparent) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent 88%);
+  pointer-events: none;
+  opacity: 0.22;
+}
+
+html.light .grid-shell {
+  opacity: 0.35;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
