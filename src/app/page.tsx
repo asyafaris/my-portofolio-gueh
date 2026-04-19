@@ -53,7 +53,7 @@ export default function Home() {
           <div className="mx-auto flex w-full max-w-7xl flex-col gap-10">
             <Reveal>
               <div className="surface-card overflow-hidden p-8 sm:p-10 lg:p-14">
-                <div className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
+                <div className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
                   <div className="space-y-8">
                     <span className="eyebrow">Available for high-impact collaboration</span>
                     <div className="space-y-6">
@@ -73,7 +73,7 @@ export default function Home() {
                     <div className="flex flex-col gap-4 sm:flex-row">
                       <Link
                         href="#projects"
-                        className="inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-slate-950 transition duration-200 hover:translate-y-[-1px] hover:shadow-[0_12px_28px_rgba(114,168,255,0.34)]"
+                        className="inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-slate-950 transition duration-200 hover:translate-y-[-1px] hover:shadow-[0_12px_28px_rgba(114,168,255,0.34)] view-projects-link"
                       >
                         View Projects
                       </Link>

@@ -104,6 +104,10 @@ html.light .grid-shell {
   opacity: 0.35;
 }
 
+html.light .view-projects-link {
+  color: #ffffff;
+}
+
 .text-balance {
   text-wrap: balance;
 }
